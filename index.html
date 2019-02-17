@@ -125,12 +125,19 @@ This work was made possible, in part, by a Cooperative Agreement from the United
 
 <section>
 <h3>Research</h3>
-modeling the spread of pests and pathogens
-Open science
-We present a new software for modeling the spread of pests and pathogens over a landscape.
-available (open source)
-available early (since the experimental phase, i.e. pre-release)
+
+<ul>
+    <li>modeling the spread of pests and pathogens over a landscape
+    <li>software for modeling of the spread
+    <li>Open science
+        <ul>
+            <li>available (open source)
+            <li>available early (since the experimental phase, i.e. pre-release)
+        </ul>
+</ul>
+
 </section>
+
 
 <section>
 <h3>PoPS Model</h3>
@@ -149,6 +156,18 @@ available early (since the experimental phase, i.e. pre-release)
 <br>
 
 <img src="img/pops_logo.png" alt="PoPS logo" class="stretch">
+
+</section>
+
+
+<section>
+<h3>Mechanics</h3>
+
+</section>
+
+
+<section>
+<h3>Mechanics</h3>
 
 </section>
 
@@ -206,12 +225,40 @@ performance reasons
 
 
 <section>
+<h3>R Package: Usage</h3>
+
+<pre style="font-size: 94%;"><code>host_file &lt;- system.file(..., "host.tif", ...)
+# ...
+
+data &lt;- pops(
+    infected_file, host_file, ...
+    reproductive_rate = 1.0,
+    ...
+    start_time = 2001, end_time = 2005)
+</code></pre>
+
+<p>Install:
+
+<pre style="font-size: 70%;"><code>install.packages("devtools")
+library(devtools)
+devtools::install_github("ncsu-landscape-dynamics/rpops")
+library(PoPS)
+</code></pre>
+
+</section>
+
+
+<section>
 <h3>GRASS GIS Module</h3>
 
 <ul>
     <li>graphical user interface
     <li>Python interface
     <li>preprocessing, postprocessing, visualization tools
+    <li>published in GRASS GIS Addons repository
+        <ul>
+            <li><code>g.extension r.pops.spread</code>
+        </ul>
 </ul>
 
 <br>
@@ -222,6 +269,57 @@ performance reasons
 <a href="https://github.com/ncsu-landscape-dynamics/r.spread.pest">github.com/ncsu-landscape-dynamics/r.spread.pest</a>
 </p>
 
+</section>
+
+
+<section>
+<h3>GRASS GIS Module: GUI</h3>
+
+<em>Graphical user interface for PoPS</em>
+
+<br>
+
+<img src="img/grass_gis_logo.svg" class="stretch">
+
+</section>
+
+
+<section>
+<h3>GRASS GIS Module: Python</h3>
+
+<em>Python interface for PoPS in GRASS GIS</em>
+
+<br>
+
+<pre style="font-size: 94%;"><code class="python">import grass.script as gs
+
+gs.run_command('r.import', input='host.tif', ...)
+# ...
+
+gs.run_command('r.spread.sod', species='host', ...
+               moisture_file='moistures.txt',
+               temperature_file='temperatures.txt',
+               start_time=2005, end_time=2010,
+               rtype='cauchy', wind='NE', random_seed=42)
+</code></pre>
+
+</section>
+
+
+<section>
+<h3>GRASS GIS Module: Command line</h3>
+
+<em>Command line (Bash) interface for PoPS in GRASS GIS</em>
+
+<pre style="font-size: 94%;"><code class="bash">r.import input=host.tif ...
+# ...
+
+r.spread.sod species=lide lvtree=all infected=infected_2005 \
+    moist_file=moistures.txt \
+    temp_file=temperatures.txt \
+    output=spread_sod start_time=2005 end_time=2010 \
+    rtype=cauchy wind=NE rseed=4
+</code></pre>
 
 </section>
 
