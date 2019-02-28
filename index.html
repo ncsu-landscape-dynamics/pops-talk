@@ -135,10 +135,6 @@ This work was made possible, in part, by a Cooperative Agreement from the United
 <ul>
     <li>Sampling and other field work
     <li>Modeling
-        <ul>
-            <li>Spread of pests and pathogens over a landscape
-                <small>(spatially explicit)</small>
-        </ul>
     <li>Software for modeling of the spread
     <li>Using the model for management 
     <li>Open source
@@ -158,6 +154,8 @@ This work was made possible, in part, by a Cooperative Agreement from the United
 </p>
 
 <ul>
+    <li>Spread of pests and pathogens over a landscape
+                <small>(spatially explicit)</small>
     <li>Open source
     <li>Various ways of using it
     <li>Already in use
@@ -195,8 +193,8 @@ Establishment of the dispersers
 
 
 <section>
-<h3>Model Result</h3>
-Spatial distribution of infected or infested hosts
+<h3>Scenarios and Model Result</h3>
+Spatial distribution of infected or infested hosts and spatial management input
 <br>
 <img src="img/spread_barrier.jpg" class="stretch">
 </section>
@@ -273,10 +271,10 @@ Simulation&ltRaster&lt;int>, Raster&lt;double>>
 <h3>R Package</h3>
 
 <ul>
+    <li>Rcpp for accessing the C++ library from R
     <li>statistical functions
     <li>functions to implement calibration
     <li>preprocessing, postprocessing, visualization functions
-    <li>Rcpp for accessing the C++ library from R
 </ul>
 
 <br>
@@ -318,8 +316,9 @@ library(PoPS)
 <h3>GRASS GIS Module</h3>
 
 <ul>
-    <li>graphical user interface
-    <li>Python interface
+    <li>GRASS GIS interface to the C++ library written in C++
+    <li>various user interface in GRASS GIS
+    <li>tools for spatial analysis
     <li>preprocessing, postprocessing, visualization tools
     <li>published in GRASS GIS Addons repository
         <ul>
@@ -392,6 +391,7 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
 
 <section>
 <h3>Tangible Landscape Application</h3>
+<em>Low-barrier interface to the model</em>
 <img src="img/sod_oregon_workshop.jpg" class="stretch">
 <p>Sudden Oak Death Management Workshop, Oregon, 2017</p>
 </section>
@@ -432,6 +432,7 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
             <li>available early (since the experimental phase, i.e. pre-release)
             <li>more applications of the model in research and management
             <li>open collaboration on improving the model
+            <li>easier collaboration within our institution
         </ul>
 </ul>
 
