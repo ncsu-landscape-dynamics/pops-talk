@@ -112,65 +112,93 @@
 <h3>Motivation</h3>
 
 <ul>
-    <li>Plant diseases and pests directly threaten food production and production of plant-based materials
-    <li>influence agricultural and industrial trade in an area after establishment of necessary quarantine zones
-    <li>Understanding the potential spread of pests and pathogens is thus crucial for protecting the economy and food security
-    <li>CGA working with USDA APHIS.
+    <li>Plant diseases and pests threaten production of food and plant-based materials.
+    <li>NCSU CGA &amp; USDA APHIS investigating the spread of pests and pathogens.
 </ul>
 
-<blockquote>
+<br>
+<img src="img/spotted_lanternfly_grape.jpg" class="stretch">
+<!-- TODO: Unclear picture origin -->
+
+<blockquote style="width: 85%">
+<small>
 This work was made possible, in part, by a Cooperative Agreement from the United States Department of Agriculture’s Animal and Plant Health Inspection Service (APHIS). It may not necessarily express the views of APHIS.
+</small>
 </blockquote>
 
 </section>
 
 
-<section>
+<section class="textimg">
 <h3>Research</h3>
 
 <ul>
-    <li>modeling the spread of pests and pathogens over a landscape
-    <li>software for modeling of the spread
-    <li>Open science
+    <li>Sampling and other field work
+    <li>Modeling
         <ul>
-            <li>available (open source)
-            <li>available early (since the experimental phase, i.e. pre-release)
+            <li>Spread of pests and pathogens over a landscape
+                <small>(spatially explicit)</small>
         </ul>
+    <li>Software for modeling of the spread
+    <li>Using the model for management 
+    <li>Open source
+    <li>Open science
 </ul>
 
+<img src="img/field_work_vp.jpg">
 </section>
 
 
-<section>
+<section class="textimg">
 <h3>PoPS Model</h3>
 
+<div>
 <p>
 <em>Pest or Pathogen Spread Model</em>
 </p>
 
 <ul>
-    <li>Various ways of using it
     <li>Open source
-    <li>already in use
-    <li>actively developed
+    <li>Various ways of using it
+    <li>Already in use
+    <li>Actively developed
 </ul>
+</div>
 
+<img src="img/pops_logo.png" alt="PoPS logo">
+
+</section>
+
+
+<section>
+<h3>Mechanics</h3>
+Generating dispersers (spores or insect)
 <br>
-
-<img src="img/pops_logo.png" alt="PoPS logo" class="stretch">
-
+<img src="img/model_generation.png" class="stretch">
 </section>
 
 
 <section>
 <h3>Mechanics</h3>
-
+Spreading the dispersers
+<br>
+<img src="img/model_spread.png" class="stretch">
 </section>
 
 
 <section>
 <h3>Mechanics</h3>
+Establishment of the dispersers
+<br>
+<img src="img/model_establishment.png" class="stretch">
+</section>
 
+
+<section>
+<h3>Model Result</h3>
+Spatial distribution of infected or infested hosts
+<br>
+<img src="img/spread_barrier.jpg" class="stretch">
 </section>
 
 
@@ -186,14 +214,24 @@ This work was made possible, in part, by a Cooperative Agreement from the United
 
 <br>
 
-<img src="img/pops_logo.png" alt="PoPS logo" class="stretch">
+<img src="img/spread_probability_detail.jpg" class="stretch">
 
 </section>
 
 
 <section>
 <h3>C++ Library</h3>
-performance reasons
+<ul>
+    <li>Using C++ for performance reasons
+        <ul>
+            <li>R was too slow
+            <li>R with Rcpp implementation was too slow
+                <ul>
+                    <li>Rcpp: Seamless R and C++ Integration
+                </ul>
+        </ul>
+    <li>Using C++11
+</ul>
 
 <br>
 
@@ -207,12 +245,38 @@ performance reasons
 
 
 <section>
+<h3>C++</h3>
+<ul>
+    <li>What-if descriptions of languages:
+    <ul>
+        <li>Python: What if everything was a dictionary?
+        <li>R: What if everything was of a different type?
+        <li>C++: What if we added everything to one language?
+        <li>C++11: What if we didn't know when to stop?
+    </ul>
+    <li>C++11 aims at being more convenient and friendlier to beginners
+</ul>
+
+<pre style="font-size: 94%;"><code>// creating simulation object
+Raster&lt;int> infected = {{5, 0},
+                        {0, 0}};
+int ew_res = 30;
+int ns_res = 30;
+Simulation&ltRaster&lt;int>, Raster&lt;double>>
+    simulation(42, infected, ew_res, ns_res);
+</code></pre>
+
+</section>
+
+
+<section>
 <h3>R Package</h3>
 
 <ul>
     <li>statistical functions
-    <li>tools for calibration
+    <li>functions to implement calibration
     <li>preprocessing, postprocessing, visualization functions
+    <li>Rcpp for accessing the C++ library from R
 </ul>
 
 <br>
@@ -268,7 +332,7 @@ library(PoPS)
 <img src="img/grass_gis_logo.svg" class="stretch">
 
 <p>
-<a href="https://github.com/ncsu-landscape-dynamics/r.spread.pest">github.com/ncsu-landscape-dynamics/r.spread.pest</a>
+<a href="https://github.com/ncsu-landscape-dynamics/r.pops.spread">github.com/ncsu-landscape-dynamics/r.pops.spread</a>
 </p>
 
 </section>
@@ -281,7 +345,7 @@ library(PoPS)
 
 <br>
 
-<img src="img/grass_gis_logo.svg" class="stretch">
+<img src="img/grass_gis_gui.png" class="stretch">
 
 </section>
 
@@ -328,7 +392,8 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
 
 <section>
 <h3>Tangible Landscape Application</h3>
-
+<img src="img/sod_oregon_workshop.jpg" class="stretch">
+<p>Sudden Oak Death Management Workshop, Oregon, 2017</p>
 </section>
 
 
@@ -338,9 +403,11 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
 <ul>
     <li>open source
         <ul>
+            <li>availability
             <li>model is open source <small>(C++ core)</small>
             <li>dependencies are open source <small>(R or GRASS GIS)</small>
             <li>integrations are open source <small>(R and GRASS GIS interfaces)</small>
+            <li>GNU GPL >=2
         </ul>
 </ul>
 
@@ -362,7 +429,8 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
 <ul>
     <li>opportunities
         <ul>
-            <li>more applications of the model
+            <li>available early (since the experimental phase, i.e. pre-release)
+            <li>more applications of the model in research and management
             <li>open collaboration on improving the model
         </ul>
 </ul>
@@ -403,6 +471,21 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
 
 
 <section>
+<h3>Coming Soon</h3>
+
+<ul>
+    <li>Release 1.0.0
+    <li>DOI
+    <li>Tools for calibration and validation 
+</ul>
+
+<br>
+<img src="img/spread_jump.jpg" class="stretch">
+
+</section>
+
+
+<section>
     <img src="img/pops_logo.png" alt="PoPS logo" class="stretch">
     <p>
         <!--
@@ -419,6 +502,7 @@ r.spread.sod species=lide lvtree=all infected=infected_2005 \
         <br>
         <a href="https://gitlab.com/vpetras/">GitLab: vpetras</a>
     </p>
+    <p>Come to see the NCSU Center for Geospatial Analytics booth!</p>
 </section>
 
 
